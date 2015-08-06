@@ -1,7 +1,7 @@
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
- * Copyright 2010 Neil C Smith.
+ * Copyright 2015 Neil C Smith.
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 2 only, as
@@ -200,8 +200,8 @@ public class VariableDelayOp implements AudioOp {
                 a = buf[ri % rnlen];
                 b = buf[(ri + 1) % rnlen];
                 o = a * (1 - s) + b * s;
-                out[i] += o * g;
                 buf[pos] = in[i] + o * fb;
+                out[i] += o * g;
                 pos = (pos + 1) % rnlen;
                 ldelay += delta;
             }
